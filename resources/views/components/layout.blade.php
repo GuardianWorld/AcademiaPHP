@@ -43,6 +43,15 @@
             align-items: center;
             width: 100%;
         }
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+        }
+        .nav-left a, .nav-right a {
+            padding: 0 20px;
+            color: #fff;
+            text-decoration: none;
+        }
         .nav-link {
             color: #fff;
             text-decoration: none;
@@ -78,58 +87,74 @@
             margin-top: 20px;
             width: 100%
         }
-        .login-container {
+
+        .login-container, .signup-container, .training-container {
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
+            width: 400px;
             text-align: center;
+            box-sizing: border-box;
+            margin: 0 auto; /* Center horizontally */
         }
-        .login-container h2 {
+
+        .login-container h2, .signup-container h2, .training-container h2 {
             margin-bottom: 20px;
         }
-        .login-container input {
+
+        .login-container input, .signup-container input, .training-container input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             box-sizing: border-box;
         }
-        .login-container button {
+
+        .login-container button, .signup-container button, .training-container button {
             background: #333;
             color: #fff;
             padding: 10px;
             border: none;
             cursor: pointer;
         }
-        .login-container a {
+
+        .login-container a, .signup-container a, .training-container a {
             display: block;
             margin-top: 10px;
             color: #333;
             text-decoration: none;
         }
-        .signup-container {
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .signup-container h2 {
-            margin-bottom: 20px;
-        }
-        .signup-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
-        .signup-container button {
-            background: #333;
-            color: #fff;
-            padding: 10px;
-            border: none;
+
+        .tabs {
+            display: flex;
+            margin-top: 20px;
             cursor: pointer;
         }
+        .tab {
+            padding: 10px;
+            background: #ddd;
+            border: 1px solid #ccc;
+            margin-right: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+        .tab.active {
+            background: #fff;
+            border-bottom: none;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fff;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
@@ -137,9 +162,13 @@
         <div class="container">
             @auth
                 <nav class="header-nav">
-                    <a href="{{ route('main.index') }}">Página Inicial</a>
-                    <a href="{{ route('users.profile') }}"><strong>{{Auth::user()->name}}</strong></a>
-                    <a href="{{ route('users.logout') }}">Logout</a>
+                    <nav class="nav-left">
+                        <a href="{{ route('main.index') }}">Página Inicial</a>
+                    </nav>
+                    <nav class="nav-right">
+                        <a href="{{ route('users.profile') }}"><strong>{{ Auth::user()->name }}</strong></a>
+                        <a href="{{ route('users.logout') }}">Logout</a>
+                    </nav>
                 </nav>
             @else
                 <nav class= "header-nav">

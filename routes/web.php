@@ -29,6 +29,10 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [UserController::class, 'create'])->name('users.register');
 Route::post('/register', [UserController::class, 'store'])->name('users.store');
 
+Route::get('/profile', [UserController::class, 'showProfile'])->name('users.profile');
+Route::get('/training', [UserController::class, 'showTraining'])->name('users.training');
+
+Route::get('/logout', [UserController::class, 'logout'])->name('users.logout');
 
 Route::get('/email', function () {
     return new \App\Mail\TimesCreated(
