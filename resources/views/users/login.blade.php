@@ -1,7 +1,7 @@
 <x-layout title="Login">
     <div class="login-container">
         <h2>Login</h2>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('users.login') }}">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">

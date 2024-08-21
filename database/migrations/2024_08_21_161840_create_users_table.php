@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
-            $table->string('name'); // Name of the user
-            $table->string('email')->unique(); // Unique email field
-            $table->string('cpf', 11)->unique(); // Unique CPF field
-            $table->timestamp('email_verified_at')->nullable(); // Optional email verification timestamp
-            $table->string('password', 60); // Password field
-            $table->rememberToken(); // For "Remember Me" functionality
-            $table->timestamps(); // Created at and updated at timestamps
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('cpf', 11)->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password', 60);
+            $table->rememberToken();
+            $table->timestamps();
             $table->integer('admin')->default(0); // Admin flag, default is 0
         });
     }
