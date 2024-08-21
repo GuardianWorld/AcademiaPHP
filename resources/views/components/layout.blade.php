@@ -88,7 +88,7 @@
             width: 100%
         }
 
-        .login-container, .signup-container, .training-container {
+        .login-container, .signup-container, .training-container, .notifications-container {
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -98,18 +98,18 @@
             margin: 0 auto; /* Center horizontally */
         }
 
-        .login-container h2, .signup-container h2, .training-container h2 {
+        .login-container h2, .signup-container h2, .training-container h2, .notifications-container h2 {
             margin-bottom: 20px;
         }
 
-        .login-container input, .signup-container input, .training-container input {
+        .login-container input, .signup-container input, .training-container input, .notifications-container input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             box-sizing: border-box;
         }
 
-        .login-container button, .signup-container button, .training-container button {
+        .login-container button, .signup-container button, .training-container button, .notifications-container button {
             background: #333;
             color: #fff;
             padding: 10px;
@@ -117,7 +117,7 @@
             cursor: pointer;
         }
 
-        .login-container a, .signup-container a, .training-container a {
+        .login-container a, .signup-container a, .training-container a, .notifications-container a {
             display: block;
             margin-top: 10px;
             color: #333;
@@ -167,6 +167,8 @@
                     </nav>
                     <nav class="nav-right">
                         <a href="{{ route('users.profile') }}"><strong>{{ Auth::user()->name }}</strong></a>
+                        <a href="{{ route('users.notifications') }}">Notificações</a>
+                        <a href="{{ route('main.payment') }}">Pagamento</a>
                         <a href="{{ route('users.logout') }}">Logout</a>
                     </nav>
                 </nav>

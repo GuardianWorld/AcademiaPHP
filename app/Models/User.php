@@ -48,6 +48,12 @@ class User extends Authenticatable
 
     public function trainings(): HasMany
     {   
-        return $this->hasMany(Training::class); // Adjust the relationship type as needed
+        return $this->hasMany(Training::class);
+    }
+
+    public function notifications(): HasMany
+    {
+        //Return only unread notifications
+        return $this->hasMany(Notification::class)->where('read', false);
     }
 }

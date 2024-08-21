@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/main', [MainController::class, 'index'])->name('main.index');
+Route::get('/payment', [MainController::class, 'payment'])->name('main.payment');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('users.login');
@@ -32,9 +34,13 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
-    Route::get('/notifications/{id}', [NotificationController::class, 'show'])->name('notifications.show');
-    Route::post('/notifications/{id}', [NotificationController::class, 'update'])->name('notifications.update');
+    Route::get('/notifications', [UserController::class, 'showNotifications'])->name('users.notifications');
+    Route::get('/notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('news.store');
+
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserController::class, 'showProfile'])->name('users.profile');

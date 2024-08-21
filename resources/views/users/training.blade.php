@@ -1,6 +1,6 @@
 <!-- resources/views/profile.blade.php -->
 
-<x-layout title="User Profile">
+<x-layout title="Perfil do Usuario">
     <div class="tabs">
         <a href="{{ route('users.profile') }}" class="tab" data-tab="personal-info">Informações Pessoais</a>
         <a href="{{ route('users.training') }}" class="tab active" data-tab="training-history">Histórico de Treinos</a>

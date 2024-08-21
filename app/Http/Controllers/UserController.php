@@ -43,4 +43,9 @@ class UserController extends Controller
         return to_route('main.index');
     }
 
+    public function showNotifications(){
+        $user = Auth::user();
+        $notifications = $user->notifications;
+        return view('users.notifications', compact('user'));
+    }
 }

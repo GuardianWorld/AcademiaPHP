@@ -1,4 +1,4 @@
-<x-layout title="Add Training">
+<x-layout title="Perfil do Usuario">
     <div class="tabs">
         <a href="{{ route('users.profile') }}" class="tab" data-tab="personal-info">Informações Pessoais</a>
         <a href="{{ route('users.training') }}" class="tab" data-tab="training-history">Histórico de Treinos</a>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <textarea id="description" name="description" class="form-control" placeholder="Descrição" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Save Training</button>
+                <button type="submit" class="btn btn-primary">Salvar Treino</button>
             </form>
         </ul>
     </div>
